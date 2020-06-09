@@ -1,0 +1,40 @@
+{
+  "name": "node-red-contrib-loracloud-utils",
+  "version": "1.0.0",
+  "description": "Utilities to use loracloud.com in Node-RED",
+  "dependencies": {
+    "lora-packet": "^0.7.0",
+    "node-red": "^1.0.4",
+    "standard": "^14.3.1"
+  },
+  "keywords": [
+    "nodered",
+    "node-red",
+    "lora",
+    "lorawan",
+    "loracloud"
+  ],
+  "license": "3-Clause BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lora-net/node-red-contrib-loracloud-utils"
+  },
+  "node-red": {
+    "nodes": {
+      "loracloud-utils-app-decrypt": "utils-app-decrypt/utils-app-decrypt.js",
+      "loracloud-utils-connectors-actility-in": "connectors/Actility/actility-in.js",
+      "loracloud-utils-connectors-ttn-v2-in": "connectors/TTN/ttn-v2-in.js",
+      "loracloud-utils-connectors-ttn-v3-in": "connectors/TTN/ttn-v3-in.js",
+      "loracloud-utils-connectors-das-parser": "connectors/das-parser.js"
+    }
+  },
+  "devDependencies": {
+    "fs.realpath": "^1.0.0",
+    "lodash": "^4.17.15",
+    "mocha": "^7.1.0",
+    "node-red-node-test-helper": "^0.2.3"
+  },
+  "scripts": {
+    "test": "mocha --exit \"test/**/*_spec.js\""
+  }
+}

@@ -1,0 +1,102 @@
+<!--
+* \file      utils-app-decrypt.html
+*
+* \brief     Node-Red node for payload decryption
+*
+* Revised BSD License
+* Copyright Semtech Corporation 2020. All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of the Semtech corporation nor the
+*       names of its contributors may be used to endorse or promote products
+*       derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+* ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH S.A. BE LIABLE FOR ANY DIRECT,
+* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType("loracloud-utils-app-decrypt",{
+        category: "LoRa Cloud",
+        color: "#0098d1",
+        inputs:1,
+        outputs:1,
+        label: function() {
+            return this.name || "LoRaWAN payload decryption";
+        },
+        inputLabels: "Encrypted payload",
+        outputLabels: "Decrypted payload",
+        paletteLabel: "LoRaWAN payload decryption",
+        defaults: {
+            name: {value:""},
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="loracloud-utils-app-decrypt">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="loracloud-utils-app-decrypt">
+    <p>Decrypt LoRaWAN payload</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt class="optional">payload
+            <span class="property-type">String</span>
+        </dt>
+        <dd> the payload of the message to decrypt. </dd>
+        <dt>uplink
+            <span class="property-type">Object</span>
+        </dt>
+        <dd> uplink metadata. </dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="node-ports">
+        <li>Decrypted payload
+            <dl class="message-properties">
+                <dt>payload<span class="property-type">string</span></dt>
+                <dd>payload in HEX format.</dd>
+            </dl>
+        </li>
+    </dl>
+
+    <h3>Details</h3>
+    <p>
+        Payload must be contained in <code>msg.payload</code> or <code>msg.uplink.payload_hex</code>
+    </p>
+    <p>
+        uplink object contains all metadata required decrypt the payload and must
+        be:<br />
+        <code>
+            msg.uplink = {<br />
+                &nbsp;&nbsp;"payload_hex": "DB",<br />
+                &nbsp;&nbsp;"dev_addr": "05C66E5D",<br />
+                &nbsp;&nbsp;"f_counter": 27495,<br />
+                &nbsp;&nbsp;"port": 1,<br />
+                &nbsp;&nbsp;"mic": "a1870582",<br />
+                &nbsp;&nbsp;"appSKey": "12556c4027fdde9327daa02546963308",<br />
+            };<br />
+        </code>
+        Note: The output of this example is 0x16
+    </p>
+</script>
