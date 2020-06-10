@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-loracloud-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities to use loracloud.com in Node-RED",
   "dependencies": {
     "lora-packet": "^0.7.0",
