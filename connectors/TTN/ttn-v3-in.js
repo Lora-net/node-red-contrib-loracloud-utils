@@ -116,6 +116,7 @@ module.exports = function(RED) {
 
                     var request = {
                         [devEui_das_format]: {
+                            "dn_mtu": 51,
                             "dr":        msg.uplink.datarate,
                             "fcnt":      msg.uplink.f_counter || 0,
                             "payload":   "",

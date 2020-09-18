@@ -116,7 +116,6 @@ module.exports = function(RED) {
                             payload = Buffer.from(result.dnlink.payload, "hex");
                             msg_downlink = {
                                 "payload": {
-                                    // TODO: Use port from DAS when fixed (result.dnlink.port)
                                     "port": result.dnlink.port,
                                     "confirmed": false,
                                     "payload_raw": payload.toString("base64"),
@@ -130,7 +129,6 @@ module.exports = function(RED) {
                             msg_downlink = {
                                 "payload": {
                                     "downlinks": [{
-                                        // TODO: Use port from DAS when fixed (result.dnlink.port)
                                         "f_port": result.dnlink.port,
                                         "frm_payload": payload.toString("base64"),
                                         "priority": "NORMAL"
@@ -145,25 +143,27 @@ module.exports = function(RED) {
                             msg_downlink.topic = `v3/${application_id}/devices/${device_id}/down/push`;
                             break;
                         case "actility":
-                            payload = Buffer.from(result.dnlink.payload, "hex");
+                            payload = result.dnlink.payload;
 
-                            // Encode downlink
-                            var packet = lora_packet.fromFields({
-                                    MType: 'Unconfirmed Data Down',
-                                    DevAddr: new Buffer(msg.uplink.dev_addr, 'hex'), // big-endian
-                                    FCtrl: {
-                                        ADR: false,
-                                        ACK: false,
-                                        ADRACKReq: false,
-                                        FPending: false,
-                                    },
-                                    FCnt: parseInt(msg.uplink.lns.context.FCntDn, 10), // can supply a buffer or a number
-                                    payload: new Buffer(payload, 'hex'),
-                                }
-                                , new Buffer(msg.uplink.appSKey, 'hex') // AppSKey
-                                , new Buffer("00000000000000000000000000000000", 'hex') // NwkSKey
-                            );
-                            const payload_encoded = packet.getBuffers().FRMPayload.toString('hex').toUpperCase();
+                            // Encode payload if AppSKey is present
+                            if (isValid(msg.uplink.appSKey) === true) {
+                                var packet = lora_packet.fromFields({
+                                        MType: 'Unconfirmed Data Down',
+                                        DevAddr: new Buffer(msg.uplink.dev_addr, 'hex'), // big-endian
+                                        FCtrl: {
+                                            ADR: false,
+                                            ACK: false,
+                                            ADRACKReq: false,
+                                            FPending: false,
+                                        },
+                                        FCnt: parseInt(msg.uplink.lns.context.FCntDn, 10), // can supply a buffer or a number
+                                        payload: new Buffer(payload, 'hex'),
+                                    }
+                                    , new Buffer(msg.uplink.appSKey, 'hex') // AppSKey
+                                    , new Buffer("00000000000000000000000000000000", 'hex') // NwkSKey
+                                );
+                                payload = packet.getBuffers().FRMPayload.toString('hex').toUpperCase();
+                            }
 
                             var date_validity = new Date();
                             date_validity.setDate(date_validity.getDate() + 15);
@@ -172,9 +172,8 @@ module.exports = function(RED) {
                                     "DevEUI_downlink": {
                                         "Time": (new Date()).toISOString(),
                                         "DevEUI": msg.uplink.devEui,
-                                        // TODO: Use port from DAS when fixed (result.dnlink.port)
                                         "FPort": result.dnlink.port.toString(),
-                                        "payload_hex": payload_encoded,
+                                        "payload_hex": payload,
                                         "Confirmed": "0",
                                         "ValidityTime": date_validity.toISOString(),
                                         "FlushDownlinkQueue": "1",

@@ -74,8 +74,22 @@ module.exports = function(RED) {
                 errCompat(node, msg, done, 'Unable to find "DevEUI_uplink" key. Payload not from Actility ?');
                 return null;
             }
+
             devEui_das_format = payload_in.DevEUI.match( /.{1,2}/g ).join( '-' );
-            var timestamp = new Date(payload_in.Time)
+            const timestamp = new Date(payload_in.Time)
+
+            if (typeof payload_in.rawJoinRequest !== "undefined") {
+                msg_das = {
+                    "payload": {
+                        [devEui_das_format]: {
+                            "msgtype":   "joining",
+                            "timestamp": timestamp/1000,
+                        }
+                    },
+                    "topic": msg.topic,
+                };
+                this.send([null, msg_das]);
+            }
 
             // Uplink
             msg_uplink = msg;
@@ -96,21 +110,28 @@ module.exports = function(RED) {
                 },
             };
             
-            var packet_fields = {
-                DevAddr: new Buffer.from(msg.uplink.dev_addr, "hex"),
-                FCnt:    msg.uplink.f_counter,
-                FPort:   msg.uplink.port,
-                payload: new Buffer.from(payload_in.payload_hex, "hex"),
+            // Decode payload if AppSKey is present
+            if (isValid(msg.uplink.appSKey) === true) {
+                var packet_fields = {
+                    DevAddr: new Buffer.from(msg.uplink.dev_addr, "hex"),
+                    FCnt:    msg.uplink.f_counter,
+                    FPort:   msg.uplink.port,
+                    payload: new Buffer.from(payload_in.payload_hex, "hex"),
+                }
+                appSKey = new Buffer.from(msg.uplink.appSKey, "hex");
+                var packet = lora_packet.fromFields(packet_fields);
+                msg.payload = lora_packet.decrypt(packet, appSKey, appSKey).toString("hex");
+                msg.uplink.payload_hex = msg.payload;
+                msg.uplink.payload_bytes = new Buffer.from(msg.payload, "hex");
+            } else {
+                msg.payload = payload_in.payload_hex;
+                msg.uplink.payload_hex = msg.payload;
+                msg.uplink.payload_bytes = new Buffer.from(msg.payload, "hex");
             }
-
-            appSKey = new Buffer.from(msg.uplink.appSKey, "hex");
-            var packet = lora_packet.fromFields(packet_fields);
-            msg.payload = lora_packet.decrypt(packet, appSKey, appSKey).toString("hex");
-            msg.uplink.payload_hex = msg.payload;
-            msg.uplink.payload_bytes = new Buffer.from(msg.payload, "hex");
 
             var request = {
                 [devEui_das_format]: {
+                    "dn_mtu": 51,
                     "dr":        msg.uplink.datarate,
                     "fcnt":      msg.uplink.f_counter || 0,
                     "payload":   "",

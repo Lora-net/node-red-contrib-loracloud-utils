@@ -119,6 +119,7 @@ module.exports = function(RED) {
                     var devEui_das_format = msg.uplink.devEui.match( /.{1,2}/g ).join( '-' )
                     var request = {
                       [devEui_das_format]: {
+                          "dn_mtu": 51,
                           "fcnt":      msg.uplink.f_counter,        // Required, frame counter
                           "payload":   "",
                           "timestamp": parseInt(msg.uplink.rx_timestamp.getTime())/1000,    // Required, timestamp, UTC, float

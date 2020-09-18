@@ -11,6 +11,8 @@ Provided nodes are:
    * Actility Thingspark
 * LoRa Cloud Device & Application services parser.
 
+This has been developped with Node v12.14.1
+
 # Development installation
 ```
 npm install --only=dev
@@ -22,6 +24,14 @@ npm test
 ```
 
 # Install in local Node-RED
+In Node-Red installation path, enter:
 ```
 npm install /path/to/cloned/repository/node-red-contrib-loracloud-utils
+```
+
+From Node-Red documentation:
+```
+In your node-red user directory, typically ~/.node-red, run:
+
+npm install <location of node module>
 ```
