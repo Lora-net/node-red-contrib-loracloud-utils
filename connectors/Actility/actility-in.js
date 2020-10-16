@@ -29,7 +29,7 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-module.exports = function(RED) {
+module.exports = function (RED) {
     var lora_packet = require("lora-packet");
 
     function isValid(data) {
@@ -57,9 +57,9 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
 
-        node.on('input', function(msg, send, done) {
+        node.on('input', function (msg, send, done) {
             // Backward compatibity with Node-Red 0.x
-            send = send || function() { node.send.apply(node,arguments) }
+            send = send || function () { node.send.apply(node, arguments) }
             var msg_das = null;
             var msg_uplink = null;
 
@@ -75,15 +75,16 @@ module.exports = function(RED) {
                 return null;
             }
 
-            devEui_das_format = payload_in.DevEUI.match( /.{1,2}/g ).join( '-' );
+            devEui_das_format = payload_in.DevEUI.match(/.{1,2}/g).join('-');
             const timestamp = new Date(payload_in.Time)
 
             if (typeof payload_in.rawJoinRequest !== "undefined") {
                 msg_das = {
                     "payload": {
-                        [devEui_das_format]: {
-                            "msgtype":   "joining",
-                            "timestamp": timestamp/1000,
+                        "deveui": devEui_das_format,
+                        "uplink": {
+                            "msgtype": "joining",
+                            "timestamp": timestamp / 1000,
                         }
                     },
                     "topic": msg.topic,
@@ -97,7 +98,7 @@ module.exports = function(RED) {
                 "appSKey": payload_in.AppSKey,
                 "devEui": payload_in.DevEUI,
                 "dev_addr": payload_in.DevAddr,
-                "port": parseInt(payload_in.FPort||"0", 10),
+                "port": parseInt(payload_in.FPort || "0", 10),
                 "f_counter": parseInt(payload_in.FCntUp, 10),
                 "rx_timestamp": new Date(payload_in.Time),
                 // TBC "frequency_hz":,
@@ -109,13 +110,13 @@ module.exports = function(RED) {
                     "context": payload_in,
                 },
             };
-            
+
             // Decode payload if AppSKey is present
             if (isValid(msg.uplink.appSKey) === true) {
                 var packet_fields = {
                     DevAddr: new Buffer.from(msg.uplink.dev_addr, "hex"),
-                    FCnt:    msg.uplink.f_counter,
-                    FPort:   msg.uplink.port,
+                    FCnt: msg.uplink.f_counter,
+                    FPort: msg.uplink.port,
                     payload: new Buffer.from(payload_in.payload_hex, "hex"),
                 }
                 appSKey = new Buffer.from(msg.uplink.appSKey, "hex");
@@ -130,25 +131,26 @@ module.exports = function(RED) {
             }
 
             var request = {
-                [devEui_das_format]: {
+                "deveui": devEui_das_format,
+                "uplink": {
                     "dn_mtu": 51,
-                    "dr":        msg.uplink.datarate,
-                    "fcnt":      msg.uplink.f_counter || 0,
-                    "payload":   "",
-                    "timestamp": parseInt(timestamp.getTime())/1000,    // Required, timestamp, UTC, float
+                    "dr": msg.uplink.datarate,
+                    "fcnt": msg.uplink.f_counter || 0,
+                    "payload": "",
+                    "timestamp": parseInt(timestamp.getTime()) / 1000,    // Required, timestamp, UTC, float
                 }
             };
 
             if (typeof msg.uplink.frequency !== 'undefined') {
-                request[devEui_das_format].freq = msg.uplink.frequency;
+                request.uplink.freq = msg.uplink.frequency;
             }
 
             if (parseInt(config.port) === msg.uplink.port) {
-                request[devEui_das_format].payload = msg.payload || "";
-                request[devEui_das_format].msgtype = "modem";
+                request.uplink.payload = msg.payload || "";
+                request.uplink.msgtype = "modem";
             } else {
-                request[devEui_das_format].msgtype = "updf";
-                request[devEui_das_format].port = msg.uplink.port;
+                request.uplink.msgtype = "updf";
+                request.uplink.port = msg.uplink.port;
             }
 
             msg_das = {
@@ -162,7 +164,7 @@ module.exports = function(RED) {
             return null;
         });
 
-        node.on("close", function() {
+        node.on("close", function () {
         });
     }
 

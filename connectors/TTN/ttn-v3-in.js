@@ -80,7 +80,8 @@ module.exports = function(RED) {
                 case "join":           // JoinReq
                     msg_das = {
                         "payload": {
-                            [devEui_das_format]: {
+                            "deveui":devEui_das_format,
+                            "uplink": {
                                 "msgtype":   "joining",
                                 "timestamp": parseInt(timestamp.getTime())/1000,
                             }
@@ -115,7 +116,8 @@ module.exports = function(RED) {
                     
 
                     var request = {
-                        [devEui_das_format]: {
+                        "deveui": devEui_das_format,
+                        "uplink": {
                             "dn_mtu": 51,
                             "dr":        msg.uplink.datarate,
                             "fcnt":      msg.uplink.f_counter || 0,
@@ -125,15 +127,15 @@ module.exports = function(RED) {
                     };
 
                     if (typeof msg.uplink.frequency !== 'undefined') {
-                        request[devEui_das_format].freq = msg.uplink.frequency;
+                        request.uplink.freq = msg.uplink.frequency;
                     }
                     
                     if (parseInt(config.port) === msg.uplink.port) {
-                        request[devEui_das_format].payload = msg.payload || "";
-                        request[devEui_das_format].msgtype = "modem";
+                        request.uplink.payload = msg.payload || "";
+                        request.uplink.msgtype = "modem";
                     } else {
-                        request[devEui_das_format].msgtype = "updf";
-                        request[devEui_das_format].port = msg.uplink.port;
+                        request.uplink.msgtype = "updf";
+                        request.uplink.port = msg.uplink.port;
                     }
                     
                     msg_das = {
