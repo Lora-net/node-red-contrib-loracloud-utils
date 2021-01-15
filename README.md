@@ -4,6 +4,9 @@ which helps connection to [LoRa Cloud](https://www.loracloud.com/).  An example
 is included to demonstrate a LoRaWAN application server working with
 [Semtech](https://www.semtech.com/) modems.
 
+Detailed instructions are provided on
+[online documentation](https://lora-developers.semtech.com/resources/tools/lora-basics/lora-basics-for-end-nodes/developer-walk-through/).
+
 Provided nodes are:
 * LoRa Network servers connectors, formating payload from LNS for LoRa Cloud
   Device & Application services. Compatible with

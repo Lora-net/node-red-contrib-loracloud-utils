@@ -1,3 +1,6 @@
+# v1.2.1 - 15/01/2021
+Fix bad Wi-Fi Json connection in modem-e example
+
 # v1.2.0 - 16/10/2020
 Add *Downlink Generator* that is in charge of the construction of downlink depending on LNS. It indeed remove this charge from *DAS Parser*
 Modify example to propagate response from DAS geolocation calls to *DAS Parser*
