@@ -1,10 +1,10 @@
 {
   "name": "@semtech-wsp-apps/node-red-contrib-loracloud-utils",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Utilities to use loracloud.com in Node-RED",
   "dependencies": {
     "lora-packet": "^0.7.0",
-    "node-red": "^1.0.4",
+    "node-red": "^1.2.8",
     "standard": "^14.3.1"
   },
   "keywords": [

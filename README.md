@@ -38,3 +38,6 @@ In your node-red user directory, typically ~/.node-red, run:
 
 npm install <location of node module>
 ```
+
+# Security note
+Node-RED has issued the security advisory [CVE-2021-21297](https://github.com/advisories/GHSA-xp9c-82x8-7f67). In result `node-red-contrib-loracloud-utils` has been updated in `v1.2.2` to set Node-RED minimal version to `v1.2.8`, which fix it. Please update your Node-RED installation.

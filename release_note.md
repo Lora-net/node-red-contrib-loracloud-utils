@@ -1,3 +1,6 @@
+# v1.2.2 03/04/2021
+Update Node-RED minimum version to ensure https://github.com/advisories/GHSA-xp9c-82x8-7f67 fix
+
 # v1.2.1 - 15/01/2021
 Fix bad Wi-Fi Json connection in modem-e example
 
