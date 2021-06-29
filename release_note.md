@@ -1,3 +1,10 @@
+# v1.3.0 29/06/2021
+Fix naming for LoRa Cloud Device & Application Services
+Update minimum version of hosted-git-info, lodash and y18n following security advisories:
+https://github.com/advisories/GHSA-43f8-2h32-f4cj
+https://github.com/advisories/GHSA-35jh-r3h4-6jhm
+https://github.com/advisories/GHSA-c4w7-xm78-47vh
+
 # v1.2.2 03/04/2021
 Update Node-RED minimum version to ensure https://github.com/advisories/GHSA-xp9c-82x8-7f67 fix
 

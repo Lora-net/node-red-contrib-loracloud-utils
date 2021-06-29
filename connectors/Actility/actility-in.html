@@ -40,7 +40,7 @@
             return this.name || "From Actility";
         },
         inputLabels: "Actility payload",
-        outputLabels: ["internal AS payload", "to DAS"],
+        outputLabels: ["internal AS payload", "to LoRa Cloud Device & Application Services"],
         paletteLabel: "From Actility",
         defaults: {
             name: {value: ""},
@@ -55,7 +55,7 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-port"><i class="icon-tag"></i>DAS Port</label>
+        <label for="node-input-port"><i class="icon-tag"></i>LoRa Cloud Device & Application Services port</label>
         <input type="text" id="node-input-port" placeholder=199>
     </div>
 </script>
@@ -81,8 +81,8 @@
         </li>
         <li>payload
             <dl class="message-properties">
-                <dt>DAS payload<span class="property-type">String</span></dt>
-                <dd>JSON string to be send to the DAS</dd>
+                <dt>LoRa Cloud Device & Application Services payload<span class="property-type">String</span></dt>
+                <dd>JSON string to be send to the LoRa Cloud Device & Application Services</dd>
             </dl>
         </li>
     </dl>

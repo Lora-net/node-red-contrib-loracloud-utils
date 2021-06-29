@@ -1,9 +1,9 @@
 [
     {
-        "id": "42553406.e0f604",
+        "id": "2be8a40f.41839c",
         "type": "http request",
-        "z": "28bf6c0d.495c44",
-        "name": "Query DAS",
+        "z": "c4dde5a6.b0b018",
+        "name": "Query LoRa Cloud Device & Application Services",
         "method": "use",
         "ret": "txt",
         "paytoqs": false,
@@ -12,101 +12,99 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 610,
-        "y": 1000,
+        "x": 690,
+        "y": 1060,
         "wires": [
             [
-                "eb67a340.611238"
+                "e707e508.8e4358"
             ]
         ]
     },
     {
-        "id": "eb67a340.611238",
+        "id": "e707e508.8e4358",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
-            "ae340d35.ea15c"
+            "81a95455.91251",
+            "d824bdab.ba561"
         ],
-        "x": 735,
-        "y": 1000,
+        "x": 915,
+        "y": 1060,
         "wires": []
     },
     {
-        "id": "ae340d35.ea15c",
+        "id": "81a95455.91251",
         "type": "link in",
-        "z": "28bf6c0d.495c44",
-        "name": "To DAS parser",
+        "z": "c4dde5a6.b0b018",
+        "name": "To LoRa Cloud Device & Application Services parser",
         "links": [
-            "eb67a340.611238",
-            "799954a3.2e0324",
-            "836f5ce7.066718",
-            "8acf6b01.1232"
+            "e707e508.8e4358"
         ],
-        "x": 255,
-        "y": 1160,
+        "x": 175,
+        "y": 1220,
         "wires": [
             [
-                "704638c.73f94c8"
+                "a27674e8.61fcc8"
             ]
         ]
     },
     {
-        "id": "239ced43.202082",
+        "id": "20b23739.38c328",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "_________________________      Device & Application Services      _________________________",
         "info": "",
-        "x": 710,
-        "y": 940,
+        "x": 690,
+        "y": 1000,
         "wires": []
     },
     {
-        "id": "ec4da66.81245d8",
+        "id": "b04b7292.403ae8",
         "type": "loracloud-utils-connectors-actility-in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "port": "199",
-        "x": 530,
-        "y": 380,
+        "x": 510,
+        "y": 440,
         "wires": [
             [
-                "dd87bc5c.819bd"
+                "401466dd.1ffd18"
             ],
             [
-                "22234073.4b00b8"
+                "4936bbe6.e7693c"
             ]
         ]
     },
     {
-        "id": "27723b8e.5c0404",
+        "id": "135050b5.d3bc67",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
-        "name": "_________________________      LNS Connexion      _________________________",
+        "z": "c4dde5a6.b0b018",
+        "name": "_________________________      Network Server Connexion      _________________________",
         "info": "",
-        "x": 660,
-        "y": 320,
+        "x": 640,
+        "y": 380,
         "wires": []
     },
     {
-        "id": "d3b81ad0.67c19",
+        "id": "adad6438.142d6",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
             "a7a151f7.ab3b18",
-            "223db848.b85b",
+            "dd0a8b98.effe48",
             "c350de83.3d1598"
         ],
-        "x": 715,
-        "y": 500,
+        "x": 695,
+        "y": 560,
         "wires": []
     },
     {
-        "id": "7e6a41f5.b0b34",
+        "id": "b3ddbe9c.f689b",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS url",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services url",
         "props": [
             {
                 "p": "payload"
@@ -123,33 +121,33 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 320,
-        "y": 100,
+        "x": 360,
+        "y": 160,
         "wires": [
             [
-                "4106001f.fd3178"
+                "e47fb3ae.8744"
             ]
         ]
     },
     {
-        "id": "4106001f.fd3178",
+        "id": "e47fb3ae.8744",
         "type": "function",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS url",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services url",
         "func": "global.set('das_url', msg.payload);",
         "outputs": 1,
         "noerr": 0,
-        "x": 520,
-        "y": 100,
+        "x": 740,
+        "y": 160,
         "wires": [
             []
         ]
     },
     {
-        "id": "be5aee51.1dacc8",
+        "id": "dd2c556c.c1123",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS server token",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services server token",
         "props": [
             {
                 "p": "payload"
@@ -166,99 +164,99 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 350,
-        "y": 60,
+        "x": 330,
+        "y": 120,
         "wires": [
             [
-                "6ade3a6f.1025c4"
+                "da2cc5ba.966b68"
             ]
         ]
     },
     {
-        "id": "6ade3a6f.1025c4",
+        "id": "da2cc5ba.966b68",
         "type": "function",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS server token",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services server token",
         "func": "global.set('das_token', msg.payload);",
         "outputs": 1,
         "noerr": 0,
-        "x": 550,
-        "y": 60,
+        "x": 770,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "d2f553d3.9ba84",
+        "id": "4234a77c.85856",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "_________________________      CONFIG      _________________________",
-        "info": "Demo AS code v1.2.0\n\n---\n\nv1.2.0\nAdd Downlink Generator block\nChange DAS API usage from /uplink/send to /device/send\n\nv1.1.0\nUse Wi-Fi DAS\n\nv1.0.1\nUpdate license\n\nv1.0.0\nInital release",
-        "x": 640,
-        "y": 20,
+        "info": "Demo AS code v1.3.0\n\n---\n\nv1.3.0\nAdd Network Server storage\nFix network server naming\n\nRename LoRa Cloud Devices & Application Services\n\nv1.2.0\nAdd Downlink Generator block\nChange DAS API usage from /uplink/send to /device/send\n\nv1.1.0\nUse Wi-Fi DAS\n\nv1.0.1\nUpdate license\n\nv1.0.0\nInital release",
+        "x": 600,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "5cc19ea2.ed8168",
+        "id": "3c8b22f.65430de",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "License",
         "info": "Revised BSD License\nCopyright Semtech Corporation 2020. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n* Redistributions of source code must retain the above copyright\n  notice, this list of conditions and the following disclaimer.\n* Redistributions in binary form must reproduce the above copyright\n  notice, this list of conditions and the following disclaimer in the\n  documentation and/or other materials provided with the distribution.\n* Neither the name of the Semtech corporation nor the\n  names of its contributors may be used to endorse or promote products\n  derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\nARE DISCLAIMED. IN NO EVENT SHALL SEMTECH S.A. BE LIABLE FOR ANY DIRECT,\nINDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND\nON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
-        "x": 1130,
-        "y": 20,
+        "x": 1110,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "304e9a15.89e07e",
+        "id": "fdbe80e1.db2598",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "_________________________      Application example      _________________________",
         "info": "",
-        "x": 680,
-        "y": 1580,
+        "x": 660,
+        "y": 1940,
         "wires": []
     },
     {
-        "id": "223db848.b85b",
+        "id": "dd0a8b98.effe48",
         "type": "link in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "To graph",
         "links": [
-            "d3b81ad0.67c19",
+            "adad6438.142d6",
             "4ffefb56.6cd57c",
-            "dd87bc5c.819bd",
+            "401466dd.1ffd18",
             "39ef899f.f3f1d6",
-            "7e0c2420.0adbd4",
+            "89380824.7e28a8",
             "b014715b.09feb"
         ],
-        "x": 255,
-        "y": 1644,
+        "x": 235,
+        "y": 2004,
         "wires": [
             [
-                "f949d9fc.51f138"
+                "6fcacd33.d13244"
             ]
         ]
     },
     {
-        "id": "f949d9fc.51f138",
+        "id": "6fcacd33.d13244",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "If port=102, extract temperature",
         "func": "if (msg.uplink.port == 102) {\n    msg.payload = (new Buffer.from(msg.payload, 'hex'))[0];\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
         "noerr": 0,
-        "x": 430,
-        "y": 1644,
+        "x": 410,
+        "y": 2004,
         "wires": [
             [
-                "a95ef73a.3694e"
+                "48d2348f.3c0acc"
             ]
         ]
     },
     {
-        "id": "a95ef73a.3694e",
+        "id": "48d2348f.3c0acc",
         "type": "ui_chart",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Temperature widget",
         "group": "80204734.dbb678",
         "order": 0,
@@ -292,138 +290,138 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 700,
-        "y": 1644,
+        "x": 680,
+        "y": 2004,
         "wires": [
             []
         ]
     },
     {
-        "id": "aee203c8.e9022",
+        "id": "6fc1d474.c0be0c",
         "type": "mqtt in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "TTN v2 - Uplinks",
         "topic": "+/devices/+/up",
         "qos": "2",
         "datatype": "auto",
         "broker": "",
-        "x": 320,
-        "y": 520,
+        "x": 300,
+        "y": 580,
         "wires": [
             [
-                "f4667960.6eae88"
+                "ee0f09a8.87dab8"
             ]
         ]
     },
     {
-        "id": "e79f15ed.86765",
+        "id": "dd8cd3f1.5393d8",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS - Error",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services - Error",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 590,
-        "y": 1240,
+        "x": 850,
+        "y": 1300,
         "wires": []
     },
     {
-        "id": "11ccb824.956248",
+        "id": "3289c228.2315f6",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS - Data",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services - Data",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 590,
-        "y": 1080,
+        "x": 850,
+        "y": 1140,
         "wires": []
     },
     {
-        "id": "247dd509.adc232",
+        "id": "6bd7980a.2bf358",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS - Stream",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services - Stream",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 600,
-        "y": 1160,
+        "x": 860,
+        "y": 1220,
         "wires": []
     },
     {
-        "id": "433b882e.bfffb",
+        "id": "3a7f1023.ca2fa",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS - File",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services - File",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 370,
-        "y": 1704,
+        "x": 480,
+        "y": 2060,
         "wires": []
     },
     {
-        "id": "9847046e.a50778",
+        "id": "c7df7b21.8d83e8",
         "type": "mqtt out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "",
         "broker": "",
-        "x": 630,
-        "y": 1460,
+        "x": 770,
+        "y": 1720,
         "wires": []
     },
     {
-        "id": "4d40fa4d.597964",
+        "id": "97e9f410.cb4d",
         "type": "mqtt in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Actility",
         "topic": "TPX/+/+/UL",
         "qos": "2",
         "datatype": "auto",
         "broker": "",
-        "x": 290,
-        "y": 380,
+        "x": 270,
+        "y": 440,
         "wires": [
             [
-                "ec4da66.81245d8"
+                "b04b7292.403ae8"
             ]
         ]
     },
     {
-        "id": "dd87bc5c.819bd",
+        "id": "401466dd.1ffd18",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
             "a7a151f7.ab3b18",
-            "223db848.b85b",
+            "dd0a8b98.effe48",
             "c350de83.3d1598"
         ],
-        "x": 715,
-        "y": 360,
+        "x": 695,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "a83c3f22.25713",
+        "id": "a2479cc4.2535a",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
-        "name": "Get devices information from DAS",
+        "z": "c4dde5a6.b0b018",
+        "name": "Get devices information from LoRa Cloud Device & Application Services",
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -431,34 +429,34 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
-        "y": 2040,
+        "x": 260,
+        "y": 2380,
         "wires": [
             [
-                "782a06f0.1db6e"
+                "f095eafe.1d299"
             ]
         ]
     },
     {
-        "id": "782a06f0.1db6e",
+        "id": "f095eafe.1d299",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "/api/v1/device/info",
         "func": "var api = 'api/v1/device/info';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 2040,
+        "x": 630,
+        "y": 2380,
         "wires": [
             [
-                "499f5fce.a1476"
+                "5bf56684.a39378"
             ]
         ]
     },
     {
-        "id": "396cf013.6ef448",
+        "id": "cd3fc113.6595d8",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "device/info",
         "active": true,
         "tosidebar": true,
@@ -466,14 +464,14 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1150,
-        "y": 2040,
+        "x": 1110,
+        "y": 2380,
         "wires": []
     },
     {
-        "id": "499f5fce.a1476",
+        "id": "5bf56684.a39378",
         "type": "http request",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "method": "use",
         "ret": "txt",
@@ -483,44 +481,44 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 870,
-        "y": 2040,
+        "x": 830,
+        "y": 2380,
         "wires": [
             [
-                "7a084b2.2374fb4"
+                "179746dc.4bd339"
             ]
         ]
     },
     {
-        "id": "7a084b2.2374fb4",
+        "id": "179746dc.4bd339",
         "type": "json",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 1010,
-        "y": 2040,
+        "x": 970,
+        "y": 2380,
         "wires": [
             [
-                "396cf013.6ef448"
+                "cd3fc113.6595d8"
             ]
         ]
     },
     {
-        "id": "e2faea44.775968",
+        "id": "fdbfec10.116ce8",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "_________________________      Direct API calls      _________________________",
         "info": "",
-        "x": 680,
-        "y": 1980,
+        "x": 640,
+        "y": 2320,
         "wires": []
     },
     {
-        "id": "433356aa.26ae9",
+        "id": "80e3cbd3.004268",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Send reset request",
         "repeat": "",
         "crontab": "",
@@ -529,34 +527,34 @@
         "topic": "",
         "payload": "[{\"type\":\"RESET\",\"param\":3}]",
         "payloadType": "json",
-        "x": 330,
-        "y": 2100,
+        "x": 290,
+        "y": 2440,
         "wires": [
             [
-                "bfdfe728.ef41f"
+                "7b9a106b.828258"
             ]
         ]
     },
     {
-        "id": "bfdfe728.ef41f",
+        "id": "7b9a106b.828258",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "/api/v1/requests/set",
         "func": "var api = 'api/v1/requests/set';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n   'requests': msg.payload,\n   'upcount': 1,\n   'updelay': 20,\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 680,
-        "y": 2160,
+        "x": 640,
+        "y": 2500,
         "wires": [
             [
-                "862269e2.61419"
+                "3c5d4add.9dbabe"
             ]
         ]
     },
     {
-        "id": "28250d01.323baa",
+        "id": "225f004a.0dad3",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "requests/add",
         "active": true,
         "tosidebar": true,
@@ -564,14 +562,14 @@
         "tostatus": false,
         "complete": "payload.result",
         "targetType": "msg",
-        "x": 1150,
-        "y": 2160,
+        "x": 1110,
+        "y": 2500,
         "wires": []
     },
     {
-        "id": "862269e2.61419",
+        "id": "3c5d4add.9dbabe",
         "type": "http request",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "method": "use",
         "ret": "txt",
@@ -580,34 +578,34 @@
         "tls": "",
         "proxy": "",
         "authType": "basic",
-        "x": 870,
-        "y": 2160,
+        "x": 830,
+        "y": 2500,
         "wires": [
             [
-                "dd768158.49a6f8"
+                "7b185042.c1b158"
             ]
         ]
     },
     {
-        "id": "dd768158.49a6f8",
+        "id": "7b185042.c1b158",
         "type": "json",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 1010,
-        "y": 2160,
+        "x": 970,
+        "y": 2500,
         "wires": [
             [
-                "28250d01.323baa"
+                "225f004a.0dad3"
             ]
         ]
     },
     {
-        "id": "67ec3af6.b57e34",
+        "id": "cc1465ff.791df",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Send rejoin request",
         "repeat": "",
         "crontab": "",
@@ -616,18 +614,18 @@
         "topic": "",
         "payload": "[{\"type\":\"REJOIN\"}]",
         "payloadType": "json",
-        "x": 330,
-        "y": 2140,
+        "x": 290,
+        "y": 2480,
         "wires": [
             [
-                "bfdfe728.ef41f"
+                "7b9a106b.828258"
             ]
         ]
     },
     {
-        "id": "be7cbcab.3c958",
+        "id": "30ac55ed.a74252",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Update all info from modem",
         "repeat": "",
         "crontab": "",
@@ -636,177 +634,177 @@
         "topic": "",
         "payload": "[{\"type\":\"GETINFO\",\"param\":[\"appstatus\",\"uptime\",\"signal\",\"session\",\"voltage\",\"interval\",\"rxtime\",\"firmware\",\"region\",\"temp\",\"joineui\",\"chipeui\",\"adrmode\",\"charge\",\"status\",\"rstcount\",\"deveui\"]}]",
         "payloadType": "json",
-        "x": 360,
-        "y": 2180,
+        "x": 320,
+        "y": 2520,
         "wires": [
             [
-                "bfdfe728.ef41f"
+                "7b9a106b.828258"
             ]
         ]
     },
     {
-        "id": "dc932c1e.e8c5b",
+        "id": "6174b822.9d8af8",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
-            "702d87fb.267ae8",
+            "298118e2.04edc",
             "6373b4e9.65af34"
         ],
-        "x": 715,
-        "y": 540,
+        "x": 695,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "702d87fb.267ae8",
+        "id": "298118e2.04edc",
         "type": "link in",
-        "z": "28bf6c0d.495c44",
-        "name": "To DAS - Joining",
+        "z": "c4dde5a6.b0b018",
+        "name": "To LoRa Cloud Device & Application Services - Joining",
         "links": [
-            "dc932c1e.e8c5b",
-            "18411880.333928",
-            "22234073.4b00b8"
+            "6174b822.9d8af8",
+            "2301ca55.7c5a76",
+            "4936bbe6.e7693c"
         ],
-        "x": 255,
-        "y": 1000,
+        "x": 235,
+        "y": 1060,
         "wires": [
             [
-                "641f0edd.47bd9"
+                "a958c997.386848"
             ]
         ]
     },
     {
-        "id": "641f0edd.47bd9",
+        "id": "a958c997.386848",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Set url and credentials",
         "func": "var api = 'api/v1/device/send';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 400,
-        "y": 1000,
+        "x": 380,
+        "y": 1060,
         "wires": [
             [
-                "42553406.e0f604"
+                "2be8a40f.41839c"
             ]
         ]
     },
     {
-        "id": "f4667960.6eae88",
+        "id": "ee0f09a8.87dab8",
         "type": "loracloud-utils-connectors-ttn-v2-in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "port": "199",
-        "x": 530,
-        "y": 520,
+        "x": 510,
+        "y": 580,
         "wires": [
             [
-                "d3b81ad0.67c19"
+                "adad6438.142d6"
             ],
             [
-                "dc932c1e.e8c5b"
+                "6174b822.9d8af8"
             ]
         ]
     },
     {
-        "id": "203039c4.146dce",
+        "id": "7a553dad.ab0504",
         "type": "mqtt in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "TTN v2 - joinReq",
         "topic": "+/devices/+/events/activations",
         "qos": "2",
         "datatype": "auto",
         "broker": "",
-        "x": 320,
-        "y": 580,
+        "x": 300,
+        "y": 640,
         "wires": [
             [
-                "f4667960.6eae88"
+                "ee0f09a8.87dab8"
             ]
         ]
     },
     {
-        "id": "be3725f6.f53fb",
+        "id": "bf5b1f56.6beda8",
         "type": "mqtt in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "TTN v3 - Uplinks",
         "topic": "v3/+/devices/+/up",
         "qos": "2",
         "datatype": "auto",
         "broker": "",
-        "x": 320,
-        "y": 720,
+        "x": 300,
+        "y": 780,
         "wires": [
             [
-                "3db13431.a73c8c"
+                "ec73d113.9488c8"
             ]
         ]
     },
     {
-        "id": "3db13431.a73c8c",
+        "id": "ec73d113.9488c8",
         "type": "loracloud-utils-connectors-ttn-v3-in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "port": "199",
-        "x": 530,
-        "y": 720,
+        "x": 510,
+        "y": 780,
         "wires": [
             [
-                "7e0c2420.0adbd4"
+                "89380824.7e28a8"
             ],
             [
-                "18411880.333928"
+                "2301ca55.7c5a76"
             ]
         ]
     },
     {
-        "id": "7e0c2420.0adbd4",
+        "id": "89380824.7e28a8",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
             "a7a151f7.ab3b18",
-            "223db848.b85b"
+            "dd0a8b98.effe48"
         ],
-        "x": 715,
-        "y": 700,
+        "x": 695,
+        "y": 760,
         "wires": []
     },
     {
-        "id": "18411880.333928",
+        "id": "2301ca55.7c5a76",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
-            "702d87fb.267ae8"
+            "298118e2.04edc"
         ],
-        "x": 715,
-        "y": 740,
+        "x": 695,
+        "y": 800,
         "wires": []
     },
     {
-        "id": "2b4baeda.d2da4a",
+        "id": "857ffe97.06b48",
         "type": "mqtt in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "TTN v3 - joinReq",
         "topic": "v3/+/devices/+/join",
         "qos": "2",
         "datatype": "auto",
         "broker": "",
-        "x": 320,
-        "y": 780,
+        "x": 300,
+        "y": 840,
         "wires": [
             [
-                "3db13431.a73c8c"
+                "ec73d113.9488c8"
             ]
         ]
     },
     {
-        "id": "53de2653.34517",
+        "id": "2e7d45a2.706612",
         "type": "ui_text",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "group": "80204734.dbb678",
         "order": 1,
         "width": "6",
@@ -815,14 +813,14 @@
         "label": "File upload:",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 1744,
+        "x": 670,
+        "y": 2104,
         "wires": []
     },
     {
-        "id": "f31acd20.e00168",
+        "id": "ffc230ef.85b87",
         "type": "ui_template",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "group": "80204734.dbb678",
         "name": "Image widget",
         "order": 1,
@@ -833,32 +831,32 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 830,
-        "y": 1804,
+        "x": 810,
+        "y": 2164,
         "wires": [
             []
         ]
     },
     {
-        "id": "67302a97.ee9fbc",
+        "id": "ffe5380d.976c8",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Format image data",
         "func": "msg.payload = new Buffer.from(msg.payload.data, \"hex\");\nmsg.payload = msg.payload.toString(\"base64\");\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 630,
-        "y": 1804,
+        "x": 610,
+        "y": 2164,
         "wires": [
             [
-                "f31acd20.e00168"
+                "ffc230ef.85b87"
             ]
         ]
     },
     {
-        "id": "5a51fc9.f270a04",
+        "id": "889fbdc9.1acab8",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "devEuis",
         "props": [
             {
@@ -876,32 +874,32 @@
         "topic": "",
         "payload": "[\"00-00-00-00-00-00-00-00\"]",
         "payloadType": "json",
-        "x": 320,
-        "y": 140,
+        "x": 480,
+        "y": 200,
         "wires": [
             [
-                "4b60e741.b96c4"
+                "9331f9e6.016cc8"
             ]
         ]
     },
     {
-        "id": "4b60e741.b96c4",
+        "id": "9331f9e6.016cc8",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Set deveuis",
         "func": "global.set('deveuis', msg.payload);",
         "outputs": 1,
         "noerr": 0,
-        "x": 530,
-        "y": 140,
+        "x": 630,
+        "y": 200,
         "wires": [
             []
         ]
     },
     {
-        "id": "d27bfcbe.28b4",
+        "id": "e4e72d1c.0a4398",
         "type": "inject",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Clear requests",
         "repeat": "",
         "crontab": "",
@@ -910,34 +908,34 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 2280,
+        "x": 280,
+        "y": 2620,
         "wires": [
             [
-                "27b25557.2cdbba"
+                "1952ac4e.5308f4"
             ]
         ]
     },
     {
-        "id": "27b25557.2cdbba",
+        "id": "1952ac4e.5308f4",
         "type": "function",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "/api/v1/requests/clear",
         "func": "var api = 'api/v1/requests/clear';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 680,
-        "y": 2280,
+        "x": 640,
+        "y": 2620,
         "wires": [
             [
-                "6b2d532a.a7c2a4"
+                "a7693fd0.1c3c58"
             ]
         ]
     },
     {
-        "id": "6b2d532a.a7c2a4",
+        "id": "a7693fd0.1c3c58",
         "type": "http request",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "method": "use",
         "ret": "txt",
@@ -946,34 +944,34 @@
         "tls": "",
         "proxy": "",
         "authType": "basic",
-        "x": 870,
-        "y": 2280,
+        "x": 830,
+        "y": 2620,
         "wires": [
             [
-                "9e08e8dd.db515"
+                "7655849c.c76364"
             ]
         ]
     },
     {
-        "id": "9e08e8dd.db515",
+        "id": "7655849c.c76364",
         "type": "json",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 1010,
-        "y": 2280,
+        "x": 970,
+        "y": 2620,
         "wires": [
             [
-                "954a0849.757e18"
+                "d898a019.bb99"
             ]
         ]
     },
     {
-        "id": "954a0849.757e18",
+        "id": "d898a019.bb99",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "requests/add",
         "active": true,
         "tosidebar": true,
@@ -981,14 +979,14 @@
         "tostatus": false,
         "complete": "payload.result",
         "targetType": "msg",
-        "x": 1150,
-        "y": 2280,
+        "x": 1110,
+        "y": 2620,
         "wires": []
     },
     {
-        "id": "4668fd90.da4574",
+        "id": "97a9c01.8b4824",
         "type": "template",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Format raw data",
         "field": "payload",
         "fieldType": "msg",
@@ -996,48 +994,48 @@
         "syntax": "mustache",
         "template": "Session: #{{payload.sctr}}<br \\>\nPort: {{payload.port}}<br \\>\nData: {{payload.data}}<br \\>",
         "output": "str",
-        "x": 380,
-        "y": 1744,
+        "x": 360,
+        "y": 2104,
         "wires": [
             [
-                "53de2653.34517"
+                "2e7d45a2.706612"
             ]
         ]
     },
     {
-        "id": "4de5c4c9.0c4fdc",
+        "id": "35f299aa.05d4de",
         "type": "link in",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "To file display",
         "links": [
-            "3e5c2c48.cc6094"
+            "2dacf788.7e4c1"
         ],
-        "x": 255,
-        "y": 1744,
+        "x": 235,
+        "y": 2104,
         "wires": [
             [
-                "433b882e.bfffb",
-                "4668fd90.da4574",
-                "b00dc5b.1d36538"
+                "3a7f1023.ca2fa",
+                "97a9c01.8b4824",
+                "bded1421.8a9be8"
             ]
         ]
     },
     {
-        "id": "3e5c2c48.cc6094",
+        "id": "2dacf788.7e4c1",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
-        "name": "File from das",
+        "z": "c4dde5a6.b0b018",
+        "name": "File from LoRa Cloud Device & Application Services",
         "links": [
-            "4de5c4c9.0c4fdc"
+            "35f299aa.05d4de"
         ],
-        "x": 535,
-        "y": 1120,
+        "x": 675,
+        "y": 1180,
         "wires": []
     },
     {
-        "id": "b00dc5b.1d36538",
+        "id": "bded1421.8a9be8",
         "type": "switch",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Select file upload port",
         "property": "payload.port",
         "propertyType": "msg",
@@ -1051,137 +1049,136 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 400,
-        "y": 1804,
+        "x": 380,
+        "y": 2164,
         "wires": [
             [
-                "67302a97.ee9fbc"
+                "ffe5380d.976c8"
             ]
         ]
     },
     {
-        "id": "adcd5742.3f9868",
+        "id": "45b50578.4f0ca4",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
-        "name": "Downlink from DAS",
+        "z": "c4dde5a6.b0b018",
+        "name": "Downlink from LoRa Cloud Device & Application Services",
         "links": [
-            "d2454722.b78f4"
+            "9a965c2d.593198"
         ],
-        "x": 535,
-        "y": 1200,
+        "x": 675,
+        "y": 1260,
         "wires": []
     },
     {
-        "id": "d2454722.b78f4",
+        "id": "9a965c2d.593198",
         "type": "link in",
-        "z": "28bf6c0d.495c44",
-        "name": "To LNS downlink",
+        "z": "c4dde5a6.b0b018",
+        "name": "To network server downlink",
         "links": [
-            "adcd5742.3f9868"
+            "45b50578.4f0ca4",
+            "350d103c.194fa"
         ],
-        "x": 255,
-        "y": 1460,
+        "x": 395,
+        "y": 1720,
         "wires": [
             [
-                "89ef613f.175fa8",
-                "cb99817d.ee0308"
+                "5d851eba.bae208",
+                "6ddb37e.6847148"
             ]
         ]
     },
     {
-        "id": "88e1cb72.4ec32",
+        "id": "a70cbab.51feac8",
         "type": "comment",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "_________________________      Downlink management      _________________________",
         "info": "",
-        "x": 680,
-        "y": 1360,
+        "x": 700,
+        "y": 1480,
         "wires": []
     },
     {
-        "id": "22234073.4b00b8",
+        "id": "4936bbe6.e7693c",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
         "links": [
-            "702d87fb.267ae8",
+            "298118e2.04edc",
             "6373b4e9.65af34"
         ],
-        "x": 715,
-        "y": 400,
+        "x": 695,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "5f96043f.4cc4fc",
+        "id": "db4a9350.4220d",
         "type": "link out",
-        "z": "28bf6c0d.495c44",
-        "name": "Stream from DAS",
-        "links": [
-            "ba09e0bc.7116a"
-        ],
-        "x": 800,
-        "y": 1160,
+        "z": "c4dde5a6.b0b018",
+        "name": "Stream from LoRa Cloud Device & Application Services",
+        "links": [],
+        "x": 1115,
+        "y": 1220,
         "wires": []
     },
     {
-        "id": "704638c.73f94c8",
+        "id": "a27674e8.61fcc8",
         "type": "loracloud-utils-connectors-das-parser",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
-        "x": 390,
-        "y": 1160,
+        "x": 410,
+        "y": 1220,
         "wires": [
             [
-                "11ccb824.956248"
+                "3289c228.2315f6"
             ],
             [
-                "3e5c2c48.cc6094"
+                "2dacf788.7e4c1"
             ],
             [
-                "247dd509.adc232",
-                "5f96043f.4cc4fc"
+                "6bd7980a.2bf358",
+                "db4a9350.4220d"
             ],
             [
-                "adcd5742.3f9868"
+                "45b50578.4f0ca4"
             ],
             [
-                "e79f15ed.86765"
+                "dd8cd3f1.5393d8"
             ]
         ]
     },
     {
-        "id": "89ef613f.175fa8",
+        "id": "5d851eba.bae208",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
-        "name": "DAS - Downlink",
+        "z": "c4dde5a6.b0b018",
+        "name": "LoRa Cloud Device & Application Services - Downlink",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 440,
-        "y": 1500,
+        "x": 660,
+        "y": 1760,
         "wires": []
     },
     {
-        "id": "cb99817d.ee0308",
+        "id": "6ddb37e.6847148",
         "type": "loracloud-utils-connectors-downlink-generator",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "",
-        "x": 460,
-        "y": 1460,
+        "x": 600,
+        "y": 1720,
         "wires": [
             [
-                "9847046e.a50778",
-                "1f5d6886.b66dc7"
+                "c7df7b21.8d83e8",
+                "d10eaf0.007095"
             ]
         ]
     },
     {
-        "id": "1f5d6886.b66dc7",
+        "id": "d10eaf0.007095",
         "type": "debug",
-        "z": "28bf6c0d.495c44",
+        "z": "c4dde5a6.b0b018",
         "name": "Downlink Generator output",
         "active": true,
         "tosidebar": true,
@@ -1191,9 +1188,287 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 1500,
+        "x": 840,
+        "y": 1680,
         "wires": []
+    },
+    {
+        "id": "be7f7fda.918cd",
+        "type": "function",
+        "z": "c4dde5a6.b0b018",
+        "name": "Update network server configuration storage",
+        "func": "lns_configurations = global.get('lns_configurations') || {};\n\ndeveui = msg.uplink.devEui;\nlns_config = {\n    \"uplink\":msg.uplink,\n    \"topic\": msg.topic,\n};\nlns_configurations[deveui] = lns_config;\n\nglobal.set('lns_configurations', lns_configurations);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 2760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d824bdab.ba561",
+        "type": "link in",
+        "z": "c4dde5a6.b0b018",
+        "name": "To network server storage",
+        "links": [
+            "e707e508.8e4358"
+        ],
+        "x": 475,
+        "y": 2760,
+        "wires": [
+            [
+                "be7f7fda.918cd"
+            ]
+        ]
+    },
+    {
+        "id": "2942afb2.5d8f28",
+        "type": "inject",
+        "z": "c4dde5a6.b0b018",
+        "name": "Read network server configuration",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 400,
+        "y": 2800,
+        "wires": [
+            [
+                "aabaf1e3.d85528"
+            ]
+        ]
+    },
+    {
+        "id": "aabaf1e3.d85528",
+        "type": "function",
+        "z": "c4dde5a6.b0b018",
+        "name": "Read network server configuration storage",
+        "func": "msg.payload = global.get('lns_configurations') || {};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 670,
+        "y": 2800,
+        "wires": [
+            [
+                "db9ed286.8ea9b"
+            ]
+        ]
+    },
+    {
+        "id": "db9ed286.8ea9b",
+        "type": "debug",
+        "z": "c4dde5a6.b0b018",
+        "name": "network server configurations",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 2800,
+        "wires": []
+    },
+    {
+        "id": "4385e087.c98b88",
+        "type": "inject",
+        "z": "c4dde5a6.b0b018",
+        "name": "Clear network server storage",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 410,
+        "y": 2840,
+        "wires": [
+            [
+                "ab6b4235.b179c8"
+            ]
+        ]
+    },
+    {
+        "id": "ab6b4235.b179c8",
+        "type": "function",
+        "z": "c4dde5a6.b0b018",
+        "name": "Clear network server configuration storage",
+        "func": "global.set('lns_configurations', {});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 670,
+        "y": 2840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa5c34fe.b2d038",
+        "type": "comment",
+        "z": "c4dde5a6.b0b018",
+        "name": "_________________________      Network Server context      _________________________",
+        "info": "",
+        "x": 630,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "3c24bb40.3298dc",
+        "type": "function",
+        "z": "c4dde5a6.b0b018",
+        "name": "Generate downlink message",
+        "func": "deveuis = global.get('deveuis').map(raw => raw.replace(/-/g, \"\"));\nlns_configurations = global.get('lns_configurations') || {};\n\nconst all_out_msg = deveuis.map(deveui =>{\n    return {\n    \"payload\":{\n        \"payload\":msg.payload.payload,\n        \"port\": msg.payload.port,\n    },\n    \"uplink\":lns_configurations[deveui].uplink,\n    \"topic\":lns_configurations[deveui].topic,\n       }\n    }\n);\n\nreturn [all_out_msg];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 1560,
+        "wires": [
+            [
+                "110bad72.5db24b",
+                "350d103c.194fa"
+            ]
+        ]
+    },
+    {
+        "id": "110bad72.5db24b",
+        "type": "debug",
+        "z": "c4dde5a6.b0b018",
+        "name": "Generated downlink message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "350d103c.194fa",
+        "type": "link out",
+        "z": "c4dde5a6.b0b018",
+        "name": "",
+        "links": [
+            "9a965c2d.593198"
+        ],
+        "x": 935,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "d5425cdb.7f47f",
+        "type": "inject",
+        "z": "c4dde5a6.b0b018",
+        "name": "Example of message to downlink",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"payload\":\"001122\",\"port\":2}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 1560,
+        "wires": [
+            [
+                "3c24bb40.3298dc"
+            ]
+        ]
+    },
+    {
+        "id": "b265a1d7.b803d",
+        "type": "inject",
+        "z": "c4dde5a6.b0b018",
+        "name": "Turn On LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"payload\":\"4F0101\",\"port\":151}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 1600,
+        "wires": [
+            [
+                "3c24bb40.3298dc"
+            ]
+        ]
+    },
+    {
+        "id": "4df2a7a6.157088",
+        "type": "inject",
+        "z": "c4dde5a6.b0b018",
+        "name": "Turn Off LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"payload\":\"4F0100\",\"port\":151}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 1640,
+        "wires": [
+            [
+                "3c24bb40.3298dc"
+            ]
+        ]
     },
     {
         "id": "80204734.dbb678",

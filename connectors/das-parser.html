@@ -37,11 +37,11 @@
         inputs: 1,
         outputs: 5,
         label: function() {
-            return this.name || "DAS parser";
+            return this.name || "LoRa Cloud Device & Application Services parser";
         },
-        inputLabels: "DAS payload",
+        inputLabels: "LoRa Cloud Device & Application Services payload",
         outputLabels: ["payload", "file", "stream", "downlink", "error"],
-        paletteLabel: "DAS parser",
+        paletteLabel: "LoRa Cloud Device & Application Services parser",
         defaults: {
             name: {value:""},
         }
@@ -56,14 +56,14 @@
 </script>
 
 <script type="text/html" data-help-name="loracloud-utils-connectors-das-parser">
-    <p>Parse DAS output</p>
+    <p>Parse LoRa Cloud Device & Application Services output</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload
             <span class="property-type">String</span>
         </dt>
-        <dd>Payload from DAS. </dd>
+        <dd>Payload from LoRa Cloud Device & Application Services. </dd>
     </dl>
 
     <h3>Outputs</h3>
@@ -71,7 +71,7 @@
         <li>payload
             <dl class="message-properties">
                 <dt>payload<span class="property-type">Object</span></dt>
-                <dd>Formated data from DAS.</dd>
+                <dd>Formated data from LoRa Cloud Device & Application Services.</dd>
             </dl>
         </li>
         <li>file
