@@ -1,3 +1,9 @@
+# v1.4.0 02/09/2021
+
+Update Modem-E example TLV parser to add sensors and new Wi-Fi format parsing
+Fix typos in downlink generator files
+Update minimum version of glob-parent, ws and path-parse
+
 # v1.3.0 29/06/2021
 Fix naming for LoRa Cloud Device & Application Services
 Update minimum version of hosted-git-info, lodash and y18n following security advisories:

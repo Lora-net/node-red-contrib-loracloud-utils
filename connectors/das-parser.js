@@ -1,7 +1,7 @@
 /*!
 * \file      das-parser.js
 *
-* \brief     Node-Red node for to convert output of DAS to downlink
+* \brief     Node-Red node for converting DAS output to downlink
 *
 * Revised BSD License
 * Copyright Semtech Corporation 2020. All rights reserved.
