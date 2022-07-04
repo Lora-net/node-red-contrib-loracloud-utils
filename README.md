@@ -8,13 +8,12 @@ Detailed instructions are provided on
 [online documentation](https://lora-developers.semtech.com/resources/tools/lora-basics/lora-basics-for-end-nodes/developer-walk-through/).
 
 Provided nodes are:
-* LoRa Network servers connectors, formating payload from LNS for LoRa Cloud
+* LoRa Network servers connectors, formatting payload from LNS for LoRa Cloud
   Device & Application services. Compatible with
    * TTN (V2, V3)
-   * Actility Thingspark
-* LoRa Cloud Device & Application services parser.
+* Modem & Geolocation Services parser.
 
-This has been developped with Node v12.14.1
+This has been developed with Node v12.14.1
 
 # Development installation
 ```

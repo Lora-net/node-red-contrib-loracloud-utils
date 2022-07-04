@@ -1,11 +1,11 @@
 {
   "name": "@semtech-wsp-apps/node-red-contrib-loracloud-utils",
-  "version": "1.4.0",
+  "version": "1.6.2",
   "description": "Utilities to use loracloud.com in Node-RED",
   "dependencies": {
-    "lora-packet": "^0.7.0",
-    "node-red": "^1.2.8",
-    "standard": "^14.3.1"
+    "lora-packet": "^0.7.15",
+    "node-red": "^2.2.2",
+    "standard": "^16.0.4"
   },
   "keywords": [
     "nodered",
@@ -14,7 +14,7 @@
     "lorawan",
     "loracloud"
   ],
-  "license": "3-Clause BSD",
+  "license": "The Clear BSD License",
   "repository": {
     "type": "git",
     "url": "https://github.com/lora-net/node-red-contrib-loracloud-utils"
@@ -22,17 +22,16 @@
   "node-red": {
     "nodes": {
       "loracloud-utils-app-decrypt": "utils-app-decrypt/utils-app-decrypt.js",
-      "loracloud-utils-connectors-actility-in": "connectors/Actility/actility-in.js",
       "loracloud-utils-connectors-ttn-v2-in": "connectors/TTN/ttn-v2-in.js",
       "loracloud-utils-connectors-ttn-v3-in": "connectors/TTN/ttn-v3-in.js",
-      "loracloud-utils-connectors-das-parser": "connectors/das-parser.js",
+      "loracloud-utils-connectors-mgs-parser": "connectors/mgs-parser.js",
       "loracloud-utils-connectors-downlink-generator": "connectors/downlink-generator.js"
     }
   },
   "devDependencies": {
     "fs.realpath": "^1.0.0",
     "lodash": "^4.17.21",
-    "mocha": "^7.1.0",
+    "mocha": "^9.2.1",
     "node-red-node-test-helper": "^0.2.7"
   },
   "scripts": {

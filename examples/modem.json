@@ -3,7 +3,7 @@
         "id": "2be8a40f.41839c",
         "type": "http request",
         "z": "c4dde5a6.b0b018",
-        "name": "Query LoRa Cloud Device & Application Services",
+        "name": "Query Modem & Geolocation Services",
         "method": "use",
         "ret": "txt",
         "paytoqs": false,
@@ -37,7 +37,7 @@
         "id": "81a95455.91251",
         "type": "link in",
         "z": "c4dde5a6.b0b018",
-        "name": "To LoRa Cloud Device & Application Services parser",
+        "name": "To Modem & Geolocation Services parser",
         "links": [
             "e707e508.8e4358"
         ],
@@ -60,27 +60,10 @@
         "wires": []
     },
     {
-        "id": "b04b7292.403ae8",
-        "type": "loracloud-utils-connectors-actility-in",
-        "z": "c4dde5a6.b0b018",
-        "name": "",
-        "port": "199",
-        "x": 510,
-        "y": 440,
-        "wires": [
-            [
-                "401466dd.1ffd18"
-            ],
-            [
-                "4936bbe6.e7693c"
-            ]
-        ]
-    },
-    {
         "id": "135050b5.d3bc67",
         "type": "comment",
         "z": "c4dde5a6.b0b018",
-        "name": "_________________________      Network Server Connexion      _________________________",
+        "name": "_________________________      Network Server Connection      _________________________",
         "info": "",
         "x": 640,
         "y": 380,
@@ -104,7 +87,7 @@
         "id": "b3ddbe9c.f689b",
         "type": "inject",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services url",
+        "name": "Modem & Geolocation Services url",
         "props": [
             {
                 "p": "payload"
@@ -133,8 +116,8 @@
         "id": "e47fb3ae.8744",
         "type": "function",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services url",
-        "func": "global.set('das_url', msg.payload);",
+        "name": "Modem & Geolocation Services url",
+        "func": "global.set('mgs_url', msg.payload);",
         "outputs": 1,
         "noerr": 0,
         "x": 740,
@@ -147,7 +130,7 @@
         "id": "dd2c556c.c1123",
         "type": "inject",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services server token",
+        "name": "Modem & Geolocation Services server token",
         "props": [
             {
                 "p": "payload"
@@ -176,8 +159,8 @@
         "id": "da2cc5ba.966b68",
         "type": "function",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services server token",
-        "func": "global.set('das_token', msg.payload);",
+        "name": "Modem & Geolocation Services server token",
+        "func": "global.set('mgs_token', msg.payload);",
         "outputs": 1,
         "noerr": 0,
         "x": 770,
@@ -187,21 +170,11 @@
         ]
     },
     {
-        "id": "4234a77c.85856",
-        "type": "comment",
-        "z": "c4dde5a6.b0b018",
-        "name": "_________________________      CONFIG      _________________________",
-        "info": "Demo AS code v1.3.0\n\n---\n\nv1.3.0\nAdd Network Server storage\nFix network server naming\n\nRename LoRa Cloud Devices & Application Services\n\nv1.2.0\nAdd Downlink Generator block\nChange DAS API usage from /uplink/send to /device/send\n\nv1.1.0\nUse Wi-Fi DAS\n\nv1.0.1\nUpdate license\n\nv1.0.0\nInital release",
-        "x": 600,
-        "y": 60,
-        "wires": []
-    },
-    {
         "id": "3c8b22f.65430de",
         "type": "comment",
         "z": "c4dde5a6.b0b018",
         "name": "License",
-        "info": "Revised BSD License\nCopyright Semtech Corporation 2020. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n* Redistributions of source code must retain the above copyright\n  notice, this list of conditions and the following disclaimer.\n* Redistributions in binary form must reproduce the above copyright\n  notice, this list of conditions and the following disclaimer in the\n  documentation and/or other materials provided with the distribution.\n* Neither the name of the Semtech corporation nor the\n  names of its contributors may be used to endorse or promote products\n  derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\nARE DISCLAIMED. IN NO EVENT SHALL SEMTECH S.A. BE LIABLE FOR ANY DIRECT,\nINDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND\nON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+        "info": "The Clear BSD License\nCopyright Semtech Corporation 2022. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted (subject to the limitations in the disclaimer\nbelow) provided that the following conditions are met:\n * Redistributions of source code must retain the above copyright\n   notice, this list of conditions and the following disclaimer.\n * Redistributions in binary form must reproduce the above copyright\n   notice, this list of conditions and the following disclaimer in the\n   documentation and/or other materials provided with the distribution.\n * Neither the name of the Semtech corporation nor the\n   names of its contributors may be used to endorse or promote products\n   derived from this software without specific prior written permission.\n\nNO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY\nTHIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND\nCONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT\nNOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A\nPARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SEMTECH CORPORATION BE\nLIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\nCONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\nINTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\nCONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\nPOSSIBILITY OF SUCH DAMAGE.\n",
         "x": 1110,
         "y": 80,
         "wires": []
@@ -224,7 +197,6 @@
         "links": [
             "adad6438.142d6",
             "4ffefb56.6cd57c",
-            "401466dd.1ffd18",
             "39ef899f.f3f1d6",
             "89380824.7e28a8",
             "b014715b.09feb"
@@ -317,7 +289,7 @@
         "id": "dd8cd3f1.5393d8",
         "type": "debug",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services - Error",
+        "name": "Modem & Geolocation Services - Error",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -332,7 +304,7 @@
         "id": "3289c228.2315f6",
         "type": "debug",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services - Data",
+        "name": "Modem & Geolocation Services - Data",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -347,7 +319,7 @@
         "id": "6bd7980a.2bf358",
         "type": "debug",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services - Stream",
+        "name": "Modem & Geolocation Services - Stream",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -362,7 +334,7 @@
         "id": "3a7f1023.ca2fa",
         "type": "debug",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services - File",
+        "name": "Modem & Geolocation Services - File",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -387,41 +359,10 @@
         "wires": []
     },
     {
-        "id": "97e9f410.cb4d",
-        "type": "mqtt in",
-        "z": "c4dde5a6.b0b018",
-        "name": "Actility",
-        "topic": "TPX/+/+/UL",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "",
-        "x": 270,
-        "y": 440,
-        "wires": [
-            [
-                "b04b7292.403ae8"
-            ]
-        ]
-    },
-    {
-        "id": "401466dd.1ffd18",
-        "type": "link out",
-        "z": "c4dde5a6.b0b018",
-        "name": "",
-        "links": [
-            "a7a151f7.ab3b18",
-            "dd0a8b98.effe48",
-            "c350de83.3d1598"
-        ],
-        "x": 695,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "a2479cc4.2535a",
         "type": "inject",
         "z": "c4dde5a6.b0b018",
-        "name": "Get devices information from LoRa Cloud Device & Application Services",
+        "name": "Get devices information from Modem & Geolocation Services",
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -442,7 +383,7 @@
         "type": "function",
         "z": "c4dde5a6.b0b018",
         "name": "/api/v1/device/info",
-        "func": "var api = 'api/v1/device/info';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
+        "func": "var api = 'api/v1/device/info';\nmsg.method = 'post';\n\nmsg.url = `${global.get('mgs_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('mgs_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 630,
@@ -540,7 +481,7 @@
         "type": "function",
         "z": "c4dde5a6.b0b018",
         "name": "/api/v1/requests/set",
-        "func": "var api = 'api/v1/requests/set';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n   'requests': msg.payload,\n   'upcount': 1,\n   'updelay': 20,\n};\n\nreturn msg;",
+        "func": "var api = 'api/v1/requests/set';\nmsg.method = 'post';\n\nmsg.url = `${global.get('mgs_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('mgs_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n   'requests': msg.payload,\n   'upcount': 1,\n   'updelay': 20,\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 640,
@@ -659,11 +600,10 @@
         "id": "298118e2.04edc",
         "type": "link in",
         "z": "c4dde5a6.b0b018",
-        "name": "To LoRa Cloud Device & Application Services - Joining",
+        "name": "To Modem & Geolocation Services - Joining",
         "links": [
             "6174b822.9d8af8",
-            "2301ca55.7c5a76",
-            "4936bbe6.e7693c"
+            "2301ca55.7c5a76"
         ],
         "x": 235,
         "y": 1060,
@@ -678,7 +618,7 @@
         "type": "function",
         "z": "c4dde5a6.b0b018",
         "name": "Set url and credentials",
-        "func": "var api = 'api/v1/device/send';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\n\nreturn msg;",
+        "func": "var api = 'api/v1/device/send';\nmsg.method = 'post';\n\nmsg.url = `${global.get('mgs_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('mgs_token')};\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -921,7 +861,7 @@
         "type": "function",
         "z": "c4dde5a6.b0b018",
         "name": "/api/v1/requests/clear",
-        "func": "var api = 'api/v1/requests/clear';\nmsg.method = 'post';\n\nmsg.url = `${global.get('das_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('das_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
+        "func": "var api = 'api/v1/requests/clear';\nmsg.method = 'post';\n\nmsg.url = `${global.get('mgs_url')}/${api}`;\nmsg.headers = {'Authorization': global.get('mgs_token')};\n\nmsg.payload = {\n   'deveuis':  global.get('deveuis'),\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 640,
@@ -1024,7 +964,7 @@
         "id": "2dacf788.7e4c1",
         "type": "link out",
         "z": "c4dde5a6.b0b018",
-        "name": "File from LoRa Cloud Device & Application Services",
+        "name": "File from Modem & Geolocation Services",
         "links": [
             "35f299aa.05d4de"
         ],
@@ -1061,7 +1001,7 @@
         "id": "45b50578.4f0ca4",
         "type": "link out",
         "z": "c4dde5a6.b0b018",
-        "name": "Downlink from LoRa Cloud Device & Application Services",
+        "name": "Downlink from Modem & Geolocation Services",
         "links": [
             "9a965c2d.593198"
         ],
@@ -1098,23 +1038,10 @@
         "wires": []
     },
     {
-        "id": "4936bbe6.e7693c",
-        "type": "link out",
-        "z": "c4dde5a6.b0b018",
-        "name": "",
-        "links": [
-            "298118e2.04edc",
-            "6373b4e9.65af34"
-        ],
-        "x": 695,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "db4a9350.4220d",
         "type": "link out",
         "z": "c4dde5a6.b0b018",
-        "name": "Stream from LoRa Cloud Device & Application Services",
+        "name": "Stream from Modem & Geolocation Services",
         "links": [],
         "x": 1115,
         "y": 1220,
@@ -1122,7 +1049,7 @@
     },
     {
         "id": "a27674e8.61fcc8",
-        "type": "loracloud-utils-connectors-das-parser",
+        "type": "loracloud-utils-connectors-mgs-parser",
         "z": "c4dde5a6.b0b018",
         "name": "",
         "x": 410,
@@ -1150,7 +1077,7 @@
         "id": "5d851eba.bae208",
         "type": "debug",
         "z": "c4dde5a6.b0b018",
-        "name": "LoRa Cloud Device & Application Services - Downlink",
+        "name": "Modem & Geolocation Services - Downlink",
         "active": true,
         "tosidebar": true,
         "console": false,

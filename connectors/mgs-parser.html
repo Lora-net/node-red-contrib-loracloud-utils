@@ -1,7 +1,7 @@
 <!--
-* \file      ttn-v2-in.html
+* \file      mgs-parser.html
 *
-* \brief     Node-Red node for TTN v2 payload parsing
+* \brief     Node-Red node for converting MSG output to downlink
 *
  * The Clear BSD License
  * Copyright Semtech Corporation 2020. All rights reserved.
@@ -35,44 +35,38 @@
 -->
 
 <script type="text/javascript">
-    RED.nodes.registerType("loracloud-utils-connectors-ttn-v2-in",{
+    RED.nodes.registerType("loracloud-utils-connectors-mgs-parser",{
         category: "LoRa Cloud",
         color: "#0098d1",
         inputs: 1,
-        outputs: 2,
+        outputs: 5,
         label: function() {
-            return this.name || "From TTN v2";
+            return this.name || "Modem & Geolocation Services parser";
         },
-        inputLabels: "TTN v2 payload",
-        outputLabels: ["internal AS payload", "to Modem & Geolocation Services"],
-        paletteLabel: "From TTN v2",
+        inputLabels: "Modem & Geolocation Services payload",
+        outputLabels: ["payload", "file", "stream", "downlink", "error"],
+        paletteLabel: "Modem & Geolocation Services parser",
         defaults: {
-            name: {value: ""},
-            port: {value: "199"},
+            name: {value:""},
         }
     });
 </script>
 
-<script type="text/html" data-template-name="loracloud-utils-connectors-ttn-v2-in">
+<script type="text/html" data-template-name="loracloud-utils-connectors-mgs-parser">
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-port"><i class="icon-tag"></i>Modem & Geolocation Services port</label>
-        <input type="text" id="node-input-port" placeholder=199>
     </div>
 </script>
 
-<script type="text/html" data-help-name="loracloud-utils-connectors-ttn-v2-in">
-    <p>Convert payload to internal format</p>
-
+<script type="text/html" data-help-name="loracloud-utils-connectors-mgs-parser">
+    <p>Parse Modem & Geolocation Services output</p>
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload
             <span class="property-type">String</span>
         </dt>
-        <dd> Payload from TTN v2 LNS. </dd>
+        <dd>Payload from Modem & Geolocation Services. </dd>
     </dl>
 
     <h3>Outputs</h3>
@@ -80,20 +74,32 @@
         <li>payload
             <dl class="message-properties">
                 <dt>payload<span class="property-type">Object</span></dt>
-                <dd>Internal payload format.</dd>
+                <dd>Formatted data from Modem & Geolocation Services.</dd>
             </dl>
         </li>
-        <li>payload
+        <li>file
             <dl class="message-properties">
-                <dt>Modem & Geolocation Services payload<span class="property-type">String</span></dt>
-                <dd>JSON string to be send to the Modem & Geolocation Services</dd>
+                <dt>file<span class="property-type">Object</span></dt>
+                <dd>Object containing hex string representation of a received file.</dd>
+            </dl>
+        </li>
+        <li>stream
+            <dl class="message-properties">
+                <dt>stream<span class="property-type">Array</span></dt>
+                <dd>Array of objects with index and hex string representation of a received stream.</dd>
+            </dl>
+        </li>
+        <li>downlink
+            <dl class="message-properties">
+                <dt>downlink<span class="property-type">String</span></dt>
+                <dd>Downlink to be send to current LNS.</dd>
+            </dl>
+        </li>
+        <li>error
+            <dl class="message-properties">
+                <dt>error<span class="property-type">Object</span></dt>
+                <dd>Error array, if any.</dd>
             </dl>
         </li>
     </dl>
-
-    <h3>Details</h3>
-    <p>
-        This node converts<code>msg.payload</code> from TTN v2 to Semtech's
-        demo format
-    </p>
 </script>
